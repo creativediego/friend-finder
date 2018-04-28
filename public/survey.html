@@ -124,7 +124,7 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
-                    <img id="match-img" src="http://www.planystech.com/wp-content/uploads/2017/03/profile-placeholder.jpg" alt="">
+                    <img id="match-img" class="img-responsive" src="http://www.planystech.com/wp-content/uploads/2017/03/profile-placeholder.jpg" alt="">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -164,15 +164,17 @@
 
                     name: $("#name").val().trim(),
                     photo: $("#photo").val().trim(),
-                    q1: $("#q1").val(),
-                    q2: $("#q2").val(),
-                    q3: $("#q3").val(),
-                    q4: $("#q4").val(),
-                    q5: $("#q5").val()
-
+                    scores: [
+                        parseInt($("#q1").val()),
+                        parseInt($("#q2").val()),
+                        parseInt($("#q3").val()),
+                        parseInt($("#q4").val()),
+                        parseInt($("#q5").val())
+                    ]
                 }
 
-                //AJAX post data to the Friend Finder API
+                console.log(userData.scores)
+                    //AJAX post data to the Friend Finder API
 
                 $.post("/api/friends", userData).then(function(data) {
 
